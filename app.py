@@ -12,12 +12,34 @@ st.markdown(
         background-attachment: fixed;
         background-size: cover
     }}
+    .stTextInput>div>div>input {{
+        background-color: #f2dede; /* Pastel red */
+    }}
+    .stButton>button {{
+        background-color: #d9ead3; /* Pastel green */
+    }}
+    .stSelectbox>div>div>div>div {{
+        background-color: #d9ead3; /* Pastel green */
+    }}
+    .stText>div>div>div>div {{
+        color: #6a5acd; /* Pastel blue */
+    }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
 st.title("Recipe Finder")
+
+# Define a function for login
+def login():
+    # Assuming a predefined username and password
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    if username == "your_username" and password == "your_password":
+        return True
+    else:
+        return False
 
 def get_recipes(ingredients, diet):
     # api_key = "<your-api-key"
@@ -33,6 +55,18 @@ def get_recipes(ingredients, diet):
     return response.json()
 
 def main():
+    # Check if user is logged in
+    if "is_logged_in" not in st.session_state:
+        st.session_state.is_logged_in = False
+
+    # If not logged in, show login page
+    if not st.session_state.is_logged_in:
+        if login():
+            st.session_state.is_logged_in = True
+        else:
+            st.error("Incorrect username or password. Please try again.")
+            return
+
     ingredients = st.text_input("Enter comma-separated ingredients (e.g. chicken, rice, broccoli): ")
     diet = st.selectbox("Dietary restrictions", ["None", "Vegetarian", "Vegan", "Gluten-Free", "Ketogenic"])
 
