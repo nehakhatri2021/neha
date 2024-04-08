@@ -8,9 +8,7 @@ st.markdown(
     f"""
     <style>
     .stApp {{
-        background-image: url("https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-dark-green-black-background-amoled-ipad-2560x1440-794.jpg");
-        background-attachment: fixed;
-        background-size: cover
+        background-color: #add8e6; /* Light blue */
     }}
     .stTextInput>div>div>input {{
         background-color: #f4c2c2; /* Pastel pink */
@@ -19,10 +17,10 @@ st.markdown(
         background-color: #c9e4e7; /* Pastel mint green */
     }}
     .stSelectbox>div>div>div>div {{
-        background-color:  #e6e6fa; /* Lavender */
+        background-color: #e6e6fa; /* Lavender */
     }}
     .stText>div>div>div>div {{
-        color: #6a5acd; /* Pastel blue */
+        color: #ffc0cb; /* Pink */
     }}
     </style>
     """,
@@ -36,7 +34,7 @@ def login():
     # Assuming a predefined username and password
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
-    if username == "your_username" and password == "your_password":
+    if username == "neha" and password == "1234":
         return True
     else:
         return False
