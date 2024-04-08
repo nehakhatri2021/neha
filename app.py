@@ -13,13 +13,13 @@ st.markdown(
         background-size: cover
     }}
     .stTextInput>div>div>input {{
-        background-color: #f2dede; /* Pastel red */
+        background-color: #f4c2c2; /* Pastel pink */
     }}
     .stButton>button {{
-        background-color: #d9ead3; /* Pastel green */
+        background-color: #c9e4e7; /* Pastel mint green */
     }}
     .stSelectbox>div>div>div>div {{
-        background-color: #d9ead3; /* Pastel green */
+        background-color:  #e6e6fa; /* Lavender */
     }}
     .stText>div>div>div>div {{
         color: #6a5acd; /* Pastel blue */
