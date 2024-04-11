@@ -8,19 +8,9 @@ st.markdown(
     f"""
     <style>
     .stApp {{
-        background-color: #add8e6; /* Light blue */
-    }}
-    .stTextInput>div>div>input {{
-        background-color: #f4c2c2; /* Pastel pink */
-    }}
-    .stButton>button {{
-        background-color: #c9e4e7; /* Pastel mint green */
-    }}
-    .stSelectbox>div>div>div>div {{
-        background-color: #e6e6fa; /* Lavender */
-    }}
-    .stText>div>div>div>div {{
-        color: #ffc0cb; /* Pink */
+        background-image: url("https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-dark-green-black-background-amoled-ipad-2560x1440-794.jpg");
+        background-attachment: fixed;
+        background-size: cover
     }}
     </style>
     """,
@@ -28,16 +18,6 @@ st.markdown(
 )
 
 st.title("Recipe Finder")
-
-# Define a function for login
-def login():
-    # Assuming a predefined username and password
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-    if username == "neha" and password == "1234":
-        return True
-    else:
-        return False
 
 def get_recipes(ingredients, diet):
     # api_key = "<your-api-key"
@@ -53,18 +33,6 @@ def get_recipes(ingredients, diet):
     return response.json()
 
 def main():
-    # Check if user is logged in
-    if "is_logged_in" not in st.session_state:
-        st.session_state.is_logged_in = False
-
-    # If not logged in, show login page
-    if not st.session_state.is_logged_in:
-        if login():
-            st.session_state.is_logged_in = True
-        else:
-            st.error("Incorrect username or password. Please try again.")
-            return
-
     ingredients = st.text_input("Enter comma-separated ingredients (e.g. chicken, rice, broccoli): ")
     diet = st.selectbox("Dietary restrictions", ["None", "Vegetarian", "Vegan", "Gluten-Free", "Ketogenic"])
 
